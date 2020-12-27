@@ -1,0 +1,24 @@
+﻿@using CurrencyRate.Util
+@model IEnumerable<PreciousMetalModel>
+
+@{
+    ViewData["Title"] = "Курс драгоценных металлов";
+}
+
+<h4>Курс драгоценных металлов согласно ЦБ РФ - @ViewData["Date"]</h4><br />
+
+<table width="100%">
+    <tr>
+        <th>Наименование</th>
+        <th>Покупка</th>
+        <th>Продажа</th>
+    </tr>
+    @foreach(var preciousMetalModel in Model)
+    {
+        <tr>
+            <td>@((Enum.Parse(typeof(PreciousMetalCode), preciousMetalModel.Code.ToString()) as Enum).GetDisplayName())</td>
+            <td>@preciousMetalModel.Buy</td>
+            <td>@preciousMetalModel.Sell</td>
+        </tr>
+    }
+</table>

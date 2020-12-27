@@ -1,0 +1,10 @@
+﻿@using CurrencyRate.ViewModels
+@using CurrencyRate.Util
+@model PreciousMetalConverterResultViewModel
+
+@{
+    ViewData["Title"] = "Результат перевода";
+}
+
+<p>На сумму @Model.BuySum руб. можно приобрести @Model.BuyWeight гр. @((Enum.Parse(typeof(PreciousMetalCode), Model.BuyCode.ToString()) as Enum).GetDisplayName().ToLower()).</p>
+<p>@Model.SellWeight гр. @((Enum.Parse(typeof(PreciousMetalCode), Model.SellCode.ToString()) as Enum).GetDisplayName().ToLower()) можно продать на сумму @Model.SellSum руб.</p>

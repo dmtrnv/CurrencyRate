@@ -1,0 +1,32 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Конвертер валют";
+}
+
+<h4>Конвертер валют согласно курса ЦБ РФ - @ViewData["Date"]</h4><br />
+
+<form method="post" action="~/Money/Converter">
+    <p>
+        <label>Начальная валюта</label><br />
+        <select id="nameFrom" name="nameFrom">
+            @foreach(var name in Model)
+            {
+            <option>@name</option>
+            }
+        </select>
+        <input type="number" step="0.01" name="valueFrom" />
+    </p>
+    <p>
+        <label>Конечная валюта</label><br />
+        <select id="nameTo" name="nameTo">
+            @foreach(var name in Model)
+            {
+            <option>@name</option>
+            }
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
